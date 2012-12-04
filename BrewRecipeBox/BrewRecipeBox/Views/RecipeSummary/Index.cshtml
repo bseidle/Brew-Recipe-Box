@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BrewRecipeBox.Models.RecipeSummary>
+
+@{
+    ViewBag.Title = "RecipeSummary";
+}
+
+<h2>Recipe Summary</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Style)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)           
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Style)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.RecipeId /*myRecipeSummary = item*/ } ) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+     
+    foreach (var subItem in item.IngredientList)
+         {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => subItem.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => subItem.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => subItem.Unit)
+        </td>
+    </tr>
+        
+}
+}
+</table>

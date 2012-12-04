@@ -1,0 +1,36 @@
+﻿@model BrewRecipeBox.Models.Step
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Step</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StepName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StepName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StepTypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StepTypeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StepNote)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StepNote)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.StepId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

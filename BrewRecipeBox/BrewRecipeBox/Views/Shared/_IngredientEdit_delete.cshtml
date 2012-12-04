@@ -1,0 +1,53 @@
+﻿@model BrewRecipeBox.Models.Ingredient
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Ingredient</legend>
+
+        @Html.HiddenFor(model => model.IngredientId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IngredientName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IngredientName)
+            @Html.ValidationMessageFor(model => model.IngredientName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IngredientTypeId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IngredientTypeId)
+            @Html.ValidationMessageFor(model => model.IngredientTypeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IngredientNote)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IngredientNote)
+            @Html.ValidationMessageFor(model => model.IngredientNote)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

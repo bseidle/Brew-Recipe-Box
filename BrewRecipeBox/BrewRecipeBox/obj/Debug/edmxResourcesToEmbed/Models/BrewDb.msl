@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BrewDbModelStoreContainer" CdmEntityContainer="BrewDbEntities">
+    <EntitySetMapping Name="BrewLogs">
+      <EntityTypeMapping TypeName="BrewDbModel.BrewLog">
+        <MappingFragment StoreEntitySet="BrewLog">
+          <ScalarProperty Name="BrewLogId" ColumnName="BrewLogId" />
+          <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BrewLogEntries">
+      <EntityTypeMapping TypeName="BrewDbModel.BrewLogEntry">
+        <MappingFragment StoreEntitySet="BrewLogEntry">
+          <ScalarProperty Name="BrewLogEntryId" ColumnName="BrewLogEntryId" />
+          <ScalarProperty Name="BrewLogDate" ColumnName="BrewLogDate" />
+          <ScalarProperty Name="BrewLogText" ColumnName="BrewLogText" />
+          <ScalarProperty Name="BrewLogId" ColumnName="BrewLogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingredients">
+      <EntityTypeMapping TypeName="BrewDbModel.Ingredient">
+        <MappingFragment StoreEntitySet="Ingredient">
+          <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+          <ScalarProperty Name="IngredientName" ColumnName="IngredientName" />
+          <ScalarProperty Name="IngredientTypeId" ColumnName="IngredientTypeId" />
+          <ScalarProperty Name="IngredientNote" ColumnName="IngredientNote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recipes">
+      <EntityTypeMapping TypeName="BrewDbModel.Recipe">
+        <MappingFragment StoreEntitySet="Recipe">
+          <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+          <ScalarProperty Name="RecipeName" ColumnName="RecipeName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecipeIngredients">
+      <EntityTypeMapping TypeName="BrewDbModel.RecipeIngredient">
+        <MappingFragment StoreEntitySet="RecipeIngredient">
+          <ScalarProperty Name="RecipeIngredientId" ColumnName="RecipeIngredientId" />
+          <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+          <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+          <ScalarProperty Name="IngredientQuantity" ColumnName="IngredientQuantity" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecipeSteps">
+      <EntityTypeMapping TypeName="BrewDbModel.RecipeStep">
+        <MappingFragment StoreEntitySet="RecipeStep">
+          <ScalarProperty Name="RecipeStepId" ColumnName="RecipeStepId" />
+          <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+          <ScalarProperty Name="StepId" ColumnName="StepId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Steps">
+      <EntityTypeMapping TypeName="BrewDbModel.Step">
+        <MappingFragment StoreEntitySet="Step">
+          <ScalarProperty Name="StepId" ColumnName="StepId" />
+          <ScalarProperty Name="StepName" ColumnName="StepName" />
+          <ScalarProperty Name="StepTypeId" ColumnName="StepTypeId" />
+          <ScalarProperty Name="StepNote" ColumnName="StepNote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="BrewDbModel.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="UnitSymbol" ColumnName="UnitSymbol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="BrewDbModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="BrewDbModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+          <ScalarProperty Name="UserRoleName" ColumnName="UserRoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

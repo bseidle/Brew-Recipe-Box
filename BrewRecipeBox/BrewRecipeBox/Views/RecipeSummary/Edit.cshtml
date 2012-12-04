@@ -1,0 +1,58 @@
+﻿@model BrewRecipeBox.Models.RecipeSummary
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>RecipeSummary</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Style)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Style)
+            @Html.ValidationMessageFor(model => model.Style)
+        </div>
+        @foreach (var ingredient in Model.IngredientList)
+        {
+            @*Html.Partial("../Shared/_RecipeIngredientEdit", ingredient);*@
+            <tr>
+                <td>
+                    @Html.Editor(ingredient.Name)
+                    @Html.ValidationMessage(ingredient.Name)
+                </td>
+                <td>
+                    @Html.Editor(ingredient.Quantity.ToString())
+                </td>
+                <td>
+                    @Html.Editor(ingredient.Unit)
+                    @Html.ValidationMessage(ingredient.Unit)
+                </td>
+                </tr>
+        }
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

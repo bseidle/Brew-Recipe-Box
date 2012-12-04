@@ -1,0 +1,688 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BrewDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BrewDbModelStoreContainer">
+          <EntitySet Name="BrewLog" EntityType="BrewDbModel.Store.BrewLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BrewLogEntry" EntityType="BrewDbModel.Store.BrewLogEntry" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ingredient" EntityType="BrewDbModel.Store.Ingredient" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Recipe" EntityType="BrewDbModel.Store.Recipe" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RecipeIngredient" EntityType="BrewDbModel.Store.RecipeIngredient" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RecipeStep" EntityType="BrewDbModel.Store.RecipeStep" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Step" EntityType="BrewDbModel.Store.Step" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Unit" EntityType="BrewDbModel.Store.Unit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="BrewDbModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRole" EntityType="BrewDbModel.Store.UserRole" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_BrewLog_BrewLogEntry" Association="BrewDbModel.Store.FK_BrewLog_BrewLogEntry">
+            <End Role="BrewLog" EntitySet="BrewLog" />
+            <End Role="BrewLogEntry" EntitySet="BrewLogEntry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrewLog_Recipe" Association="BrewDbModel.Store.FK_BrewLog_Recipe">
+            <End Role="Recipe" EntitySet="Recipe" />
+            <End Role="BrewLog" EntitySet="BrewLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrewLog_User" Association="BrewDbModel.Store.FK_BrewLog_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="BrewLog" EntitySet="BrewLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipe_User" Association="BrewDbModel.Store.FK_Recipe_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Recipe" EntitySet="Recipe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeIngredient_Ingredient" Association="BrewDbModel.Store.FK_RecipeIngredient_Ingredient">
+            <End Role="Ingredient" EntitySet="Ingredient" />
+            <End Role="RecipeIngredient" EntitySet="RecipeIngredient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeIngredient_Recipe" Association="BrewDbModel.Store.FK_RecipeIngredient_Recipe">
+            <End Role="Recipe" EntitySet="Recipe" />
+            <End Role="RecipeIngredient" EntitySet="RecipeIngredient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeIngredient_Unit" Association="BrewDbModel.Store.FK_RecipeIngredient_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="RecipeIngredient" EntitySet="RecipeIngredient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeStep_Recipe" Association="BrewDbModel.Store.FK_RecipeStep_Recipe">
+            <End Role="Recipe" EntitySet="Recipe" />
+            <End Role="RecipeStep" EntitySet="RecipeStep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeStep_Step" Association="BrewDbModel.Store.FK_RecipeStep_Step">
+            <End Role="Step" EntitySet="Step" />
+            <End Role="RecipeStep" EntitySet="RecipeStep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserRole" Association="BrewDbModel.Store.FK_User_UserRole">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BrewLog">
+          <Key>
+            <PropertyRef Name="BrewLogId" />
+          </Key>
+          <Property Name="BrewLogId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeId" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="BrewLogEntry">
+          <Key>
+            <PropertyRef Name="BrewLogEntryId" />
+          </Key>
+          <Property Name="BrewLogEntryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BrewLogDate" Type="datetime" />
+          <Property Name="BrewLogText" Type="text" />
+          <Property Name="BrewLogId" Type="int" />
+        </EntityType>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="IngredientId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IngredientName" Type="varchar" MaxLength="50" />
+          <Property Name="IngredientTypeId" Type="int" />
+          <Property Name="IngredientNote" Type="text" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+          </Key>
+          <Property Name="RecipeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeName" Type="varchar" MaxLength="50" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="RecipeIngredient">
+          <Key>
+            <PropertyRef Name="RecipeIngredientId" />
+          </Key>
+          <Property Name="RecipeIngredientId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeId" Type="int" />
+          <Property Name="IngredientId" Type="int" />
+          <Property Name="IngredientQuantity" Type="decimal" />
+          <Property Name="UnitId" Type="int" />
+        </EntityType>
+        <EntityType Name="RecipeStep">
+          <Key>
+            <PropertyRef Name="RecipeStepId" />
+          </Key>
+          <Property Name="RecipeStepId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeId" Type="int" />
+          <Property Name="StepId" Type="int" />
+        </EntityType>
+        <EntityType Name="Step">
+          <Key>
+            <PropertyRef Name="StepId" />
+          </Key>
+          <Property Name="StepId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StepName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="StepTypeId" Type="int" />
+          <Property Name="StepNote" Type="text" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UnitName" Type="varchar" MaxLength="50" />
+          <Property Name="UnitSymbol" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="50" />
+          <Property Name="UserRoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserRoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserRoleName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_BrewLog_BrewLogEntry">
+          <End Role="BrewLog" Type="BrewDbModel.Store.BrewLog" Multiplicity="0..1" />
+          <End Role="BrewLogEntry" Type="BrewDbModel.Store.BrewLogEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BrewLog">
+              <PropertyRef Name="BrewLogId" />
+            </Principal>
+            <Dependent Role="BrewLogEntry">
+              <PropertyRef Name="BrewLogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrewLog_Recipe">
+          <End Role="Recipe" Type="BrewDbModel.Store.Recipe" Multiplicity="0..1" />
+          <End Role="BrewLog" Type="BrewDbModel.Store.BrewLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="BrewLog">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrewLog_User">
+          <End Role="User" Type="BrewDbModel.Store.User" Multiplicity="0..1" />
+          <End Role="BrewLog" Type="BrewDbModel.Store.BrewLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="BrewLog">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipe_User">
+          <End Role="User" Type="BrewDbModel.Store.User" Multiplicity="0..1" />
+          <End Role="Recipe" Type="BrewDbModel.Store.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeIngredient_Ingredient">
+          <End Role="Ingredient" Type="BrewDbModel.Store.Ingredient" Multiplicity="0..1" />
+          <End Role="RecipeIngredient" Type="BrewDbModel.Store.RecipeIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="IngredientId" />
+            </Principal>
+            <Dependent Role="RecipeIngredient">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeIngredient_Recipe">
+          <End Role="Recipe" Type="BrewDbModel.Store.Recipe" Multiplicity="0..1" />
+          <End Role="RecipeIngredient" Type="BrewDbModel.Store.RecipeIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="RecipeIngredient">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeIngredient_Unit">
+          <End Role="Unit" Type="BrewDbModel.Store.Unit" Multiplicity="0..1" />
+          <End Role="RecipeIngredient" Type="BrewDbModel.Store.RecipeIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitId" />
+            </Principal>
+            <Dependent Role="RecipeIngredient">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeStep_Recipe">
+          <End Role="Recipe" Type="BrewDbModel.Store.Recipe" Multiplicity="0..1" />
+          <End Role="RecipeStep" Type="BrewDbModel.Store.RecipeStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="RecipeStep">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeStep_Step">
+          <End Role="Step" Type="BrewDbModel.Store.Step" Multiplicity="0..1" />
+          <End Role="RecipeStep" Type="BrewDbModel.Store.RecipeStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Step">
+              <PropertyRef Name="StepId" />
+            </Principal>
+            <Dependent Role="RecipeStep">
+              <PropertyRef Name="StepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserRole">
+          <End Role="UserRole" Type="BrewDbModel.Store.UserRole" Multiplicity="1" />
+          <End Role="User" Type="BrewDbModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="UserRoleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BrewDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BrewDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BrewLogs" EntityType="BrewDbModel.BrewLog" />
+          <EntitySet Name="BrewLogEntries" EntityType="BrewDbModel.BrewLogEntry" />
+          <EntitySet Name="Ingredients" EntityType="BrewDbModel.Ingredient" />
+          <EntitySet Name="Recipes" EntityType="BrewDbModel.Recipe" />
+          <EntitySet Name="RecipeIngredients" EntityType="BrewDbModel.RecipeIngredient" />
+          <EntitySet Name="RecipeSteps" EntityType="BrewDbModel.RecipeStep" />
+          <EntitySet Name="Steps" EntityType="BrewDbModel.Step" />
+          <EntitySet Name="Units" EntityType="BrewDbModel.Unit" />
+          <EntitySet Name="Users" EntityType="BrewDbModel.User" />
+          <EntitySet Name="UserRoles" EntityType="BrewDbModel.UserRole" />
+          <AssociationSet Name="FK_BrewLog_BrewLogEntry" Association="BrewDbModel.FK_BrewLog_BrewLogEntry">
+            <End Role="BrewLog" EntitySet="BrewLogs" />
+            <End Role="BrewLogEntry" EntitySet="BrewLogEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrewLog_Recipe" Association="BrewDbModel.FK_BrewLog_Recipe">
+            <End Role="Recipe" EntitySet="Recipes" />
+            <End Role="BrewLog" EntitySet="BrewLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrewLog_User" Association="BrewDbModel.FK_BrewLog_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="BrewLog" EntitySet="BrewLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeIngredient_Ingredient" Association="BrewDbModel.FK_RecipeIngredient_Ingredient">
+            <End Role="Ingredient" EntitySet="Ingredients" />
+            <End Role="RecipeIngredient" EntitySet="RecipeIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipe_User" Association="BrewDbModel.FK_Recipe_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Recipe" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeIngredient_Recipe" Association="BrewDbModel.FK_RecipeIngredient_Recipe">
+            <End Role="Recipe" EntitySet="Recipes" />
+            <End Role="RecipeIngredient" EntitySet="RecipeIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeStep_Recipe" Association="BrewDbModel.FK_RecipeStep_Recipe">
+            <End Role="Recipe" EntitySet="Recipes" />
+            <End Role="RecipeStep" EntitySet="RecipeSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeIngredient_Unit" Association="BrewDbModel.FK_RecipeIngredient_Unit">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="RecipeIngredient" EntitySet="RecipeIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeStep_Step" Association="BrewDbModel.FK_RecipeStep_Step">
+            <End Role="Step" EntitySet="Steps" />
+            <End Role="RecipeStep" EntitySet="RecipeSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserRole" Association="BrewDbModel.FK_User_UserRole">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BrewLog">
+          <Key>
+            <PropertyRef Name="BrewLogId" />
+          </Key>
+          <Property Name="BrewLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="BrewLogEntries" Relationship="BrewDbModel.FK_BrewLog_BrewLogEntry" FromRole="BrewLog" ToRole="BrewLogEntry" />
+          <NavigationProperty Name="Recipe" Relationship="BrewDbModel.FK_BrewLog_Recipe" FromRole="BrewLog" ToRole="Recipe" />
+          <NavigationProperty Name="User" Relationship="BrewDbModel.FK_BrewLog_User" FromRole="BrewLog" ToRole="User" />
+        </EntityType>
+        <EntityType Name="BrewLogEntry">
+          <Key>
+            <PropertyRef Name="BrewLogEntryId" />
+          </Key>
+          <Property Name="BrewLogEntryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrewLogDate" Type="DateTime" />
+          <Property Name="BrewLogText" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="BrewLogId" Type="Int32" />
+          <NavigationProperty Name="BrewLog" Relationship="BrewDbModel.FK_BrewLog_BrewLogEntry" FromRole="BrewLogEntry" ToRole="BrewLog" />
+        </EntityType>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="IngredientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IngredientName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IngredientTypeId" Type="Int32" />
+          <Property Name="IngredientNote" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="RecipeIngredients" Relationship="BrewDbModel.FK_RecipeIngredient_Ingredient" FromRole="Ingredient" ToRole="RecipeIngredient" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+          </Key>
+          <Property Name="RecipeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="BrewLogs" Relationship="BrewDbModel.FK_BrewLog_Recipe" FromRole="Recipe" ToRole="BrewLog" />
+          <NavigationProperty Name="User" Relationship="BrewDbModel.FK_Recipe_User" FromRole="Recipe" ToRole="User" />
+          <NavigationProperty Name="RecipeIngredients" Relationship="BrewDbModel.FK_RecipeIngredient_Recipe" FromRole="Recipe" ToRole="RecipeIngredient" />
+          <NavigationProperty Name="RecipeSteps" Relationship="BrewDbModel.FK_RecipeStep_Recipe" FromRole="Recipe" ToRole="RecipeStep" />
+        </EntityType>
+        <EntityType Name="RecipeIngredient">
+          <Key>
+            <PropertyRef Name="RecipeIngredientId" />
+          </Key>
+          <Property Name="RecipeIngredientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeId" Type="Int32" />
+          <Property Name="IngredientId" Type="Int32" />
+          <Property Name="IngredientQuantity" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="UnitId" Type="Int32" />
+          <NavigationProperty Name="Ingredient" Relationship="BrewDbModel.FK_RecipeIngredient_Ingredient" FromRole="RecipeIngredient" ToRole="Ingredient" />
+          <NavigationProperty Name="Recipe" Relationship="BrewDbModel.FK_RecipeIngredient_Recipe" FromRole="RecipeIngredient" ToRole="Recipe" />
+          <NavigationProperty Name="Unit" Relationship="BrewDbModel.FK_RecipeIngredient_Unit" FromRole="RecipeIngredient" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="RecipeStep">
+          <Key>
+            <PropertyRef Name="RecipeStepId" />
+          </Key>
+          <Property Name="RecipeStepId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeId" Type="Int32" />
+          <Property Name="StepId" Type="Int32" />
+          <NavigationProperty Name="Recipe" Relationship="BrewDbModel.FK_RecipeStep_Recipe" FromRole="RecipeStep" ToRole="Recipe" />
+          <NavigationProperty Name="Step" Relationship="BrewDbModel.FK_RecipeStep_Step" FromRole="RecipeStep" ToRole="Step" />
+        </EntityType>
+        <EntityType Name="Step">
+          <Key>
+            <PropertyRef Name="StepId" />
+          </Key>
+          <Property Name="StepId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StepName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="StepTypeId" Type="Int32" />
+          <Property Name="StepNote" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="RecipeSteps" Relationship="BrewDbModel.FK_RecipeStep_Step" FromRole="Step" ToRole="RecipeStep" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UnitSymbol" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="RecipeIngredients" Relationship="BrewDbModel.FK_RecipeIngredient_Unit" FromRole="Unit" ToRole="RecipeIngredient" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BrewLogs" Relationship="BrewDbModel.FK_BrewLog_User" FromRole="User" ToRole="BrewLog" />
+          <NavigationProperty Name="Recipes" Relationship="BrewDbModel.FK_Recipe_User" FromRole="User" ToRole="Recipe" />
+          <NavigationProperty Name="UserRole" Relationship="BrewDbModel.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserRoleName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Users" Relationship="BrewDbModel.FK_User_UserRole" FromRole="UserRole" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_BrewLog_BrewLogEntry">
+          <End Role="BrewLog" Type="BrewDbModel.BrewLog" Multiplicity="0..1" />
+          <End Role="BrewLogEntry" Type="BrewDbModel.BrewLogEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BrewLog">
+              <PropertyRef Name="BrewLogId" />
+            </Principal>
+            <Dependent Role="BrewLogEntry">
+              <PropertyRef Name="BrewLogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrewLog_Recipe">
+          <End Role="Recipe" Type="BrewDbModel.Recipe" Multiplicity="0..1" />
+          <End Role="BrewLog" Type="BrewDbModel.BrewLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="BrewLog">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrewLog_User">
+          <End Role="User" Type="BrewDbModel.User" Multiplicity="0..1" />
+          <End Role="BrewLog" Type="BrewDbModel.BrewLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="BrewLog">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeIngredient_Ingredient">
+          <End Role="Ingredient" Type="BrewDbModel.Ingredient" Multiplicity="0..1" />
+          <End Role="RecipeIngredient" Type="BrewDbModel.RecipeIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="IngredientId" />
+            </Principal>
+            <Dependent Role="RecipeIngredient">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipe_User">
+          <End Role="User" Type="BrewDbModel.User" Multiplicity="0..1" />
+          <End Role="Recipe" Type="BrewDbModel.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeIngredient_Recipe">
+          <End Role="Recipe" Type="BrewDbModel.Recipe" Multiplicity="0..1" />
+          <End Role="RecipeIngredient" Type="BrewDbModel.RecipeIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="RecipeIngredient">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeStep_Recipe">
+          <End Role="Recipe" Type="BrewDbModel.Recipe" Multiplicity="0..1" />
+          <End Role="RecipeStep" Type="BrewDbModel.RecipeStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="RecipeStep">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeIngredient_Unit">
+          <End Role="Unit" Type="BrewDbModel.Unit" Multiplicity="0..1" />
+          <End Role="RecipeIngredient" Type="BrewDbModel.RecipeIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitId" />
+            </Principal>
+            <Dependent Role="RecipeIngredient">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeStep_Step">
+          <End Role="Step" Type="BrewDbModel.Step" Multiplicity="0..1" />
+          <End Role="RecipeStep" Type="BrewDbModel.RecipeStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Step">
+              <PropertyRef Name="StepId" />
+            </Principal>
+            <Dependent Role="RecipeStep">
+              <PropertyRef Name="StepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserRole">
+          <End Role="UserRole" Type="BrewDbModel.UserRole" Multiplicity="1" />
+          <End Role="User" Type="BrewDbModel.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="UserRoleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BrewDbModelStoreContainer" CdmEntityContainer="BrewDbEntities">
+          <EntitySetMapping Name="BrewLogs"><EntityTypeMapping TypeName="BrewDbModel.BrewLog"><MappingFragment StoreEntitySet="BrewLog">
+            <ScalarProperty Name="BrewLogId" ColumnName="BrewLogId" />
+            <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BrewLogEntries"><EntityTypeMapping TypeName="BrewDbModel.BrewLogEntry"><MappingFragment StoreEntitySet="BrewLogEntry">
+            <ScalarProperty Name="BrewLogEntryId" ColumnName="BrewLogEntryId" />
+            <ScalarProperty Name="BrewLogDate" ColumnName="BrewLogDate" />
+            <ScalarProperty Name="BrewLogText" ColumnName="BrewLogText" />
+            <ScalarProperty Name="BrewLogId" ColumnName="BrewLogId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Ingredients"><EntityTypeMapping TypeName="BrewDbModel.Ingredient"><MappingFragment StoreEntitySet="Ingredient">
+            <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+            <ScalarProperty Name="IngredientName" ColumnName="IngredientName" />
+            <ScalarProperty Name="IngredientTypeId" ColumnName="IngredientTypeId" />
+            <ScalarProperty Name="IngredientNote" ColumnName="IngredientNote" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Recipes"><EntityTypeMapping TypeName="BrewDbModel.Recipe"><MappingFragment StoreEntitySet="Recipe">
+            <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+            <ScalarProperty Name="RecipeName" ColumnName="RecipeName" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RecipeIngredients"><EntityTypeMapping TypeName="BrewDbModel.RecipeIngredient"><MappingFragment StoreEntitySet="RecipeIngredient">
+            <ScalarProperty Name="RecipeIngredientId" ColumnName="RecipeIngredientId" />
+            <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+            <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+            <ScalarProperty Name="IngredientQuantity" ColumnName="IngredientQuantity" />
+            <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RecipeSteps"><EntityTypeMapping TypeName="BrewDbModel.RecipeStep"><MappingFragment StoreEntitySet="RecipeStep">
+            <ScalarProperty Name="RecipeStepId" ColumnName="RecipeStepId" />
+            <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+            <ScalarProperty Name="StepId" ColumnName="StepId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Steps"><EntityTypeMapping TypeName="BrewDbModel.Step"><MappingFragment StoreEntitySet="Step">
+            <ScalarProperty Name="StepId" ColumnName="StepId" />
+            <ScalarProperty Name="StepName" ColumnName="StepName" />
+            <ScalarProperty Name="StepTypeId" ColumnName="StepTypeId" />
+            <ScalarProperty Name="StepNote" ColumnName="StepNote" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Units"><EntityTypeMapping TypeName="BrewDbModel.Unit"><MappingFragment StoreEntitySet="Unit">
+            <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+            <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+            <ScalarProperty Name="UnitSymbol" ColumnName="UnitSymbol" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Users"><EntityTypeMapping TypeName="BrewDbModel.User"><MappingFragment StoreEntitySet="User">
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+            <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserRoles"><EntityTypeMapping TypeName="BrewDbModel.UserRole"><MappingFragment StoreEntitySet="UserRole">
+            <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+            <ScalarProperty Name="UserRoleName" ColumnName="UserRoleName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="BrewDb">
+        <EntityTypeShape EntityType="BrewDbModel.BrewLog" Width="1.5" PointX="7.5" PointY="5.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDbModel.BrewLogEntry" Width="1.5" PointX="9.75" PointY="3.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDbModel.Ingredient" Width="1.5" PointX="5.25" PointY="11" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDbModel.Recipe" Width="1.5" PointX="5.25" PointY="7.125" Height="2.3648893229166665" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDbModel.RecipeIngredient" Width="1.5" PointX="7.5" PointY="9" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDbModel.RecipeStep" Width="1.5" PointX="10.5" PointY="7.25" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDbModel.Step" Width="1.5" PointX="8.25" PointY="13.25" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDbModel.Unit" Width="1.5" PointX="5.25" PointY="13.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDbModel.User" Width="1.5" PointX="3" PointY="4.125" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDbModel.UserRole" Width="1.5" PointX="0.75" PointY="4.5" Height="1.5956835937499996" IsExpanded="true" />
+        <AssociationConnector Association="BrewDbModel.FK_BrewLog_BrewLogEntry" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="6.46875" />
+          <ConnectorPoint PointX="10.09375" PointY="6.46875" />
+          <ConnectorPoint PointX="10.09375" PointY="5.7302864583333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="BrewDbModel.FK_BrewLog_Recipe" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="7.5237939453125" />
+          <ConnectorPoint PointX="7.5" PointY="7.5237939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="BrewDbModel.FK_BrewLog_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="6.1199446614583337" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="6.1199446614583328" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="6.1199446614583337" />
+          <ConnectorPoint PointX="7.5" PointY="6.1199446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="BrewDbModel.FK_RecipeIngredient_Ingredient" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="11.278595377604166" />
+          <ConnectorPoint PointX="7.5" PointY="11.278595377604166" />
+        </AssociationConnector>
+        <AssociationConnector Association="BrewDbModel.FK_Recipe_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.0912198307291661" />
+          <ConnectorPoint PointX="6" PointY="5.0912198307291661" />
+          <ConnectorPoint PointX="6" PointY="7.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="BrewDbModel.FK_RecipeIngredient_Recipe" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="9.2449446614583337" />
+          <ConnectorPoint PointX="7.5" PointY="9.2449446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="BrewDbModel.FK_RecipeStep_Recipe" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="8.4612939453125" />
+          <ConnectorPoint PointX="10.5" PointY="8.4612939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="BrewDbModel.FK_RecipeIngredient_Unit" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="15.4153857421875" />
+          <ConnectorPoint PointX="7.84375" PointY="15.4153857421875" />
+          <ConnectorPoint PointX="7.84375" PointY="11.557190755208332" />
+        </AssociationConnector>
+        <AssociationConnector Association="BrewDbModel.FK_RecipeStep_Step" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.40625" PointY="13.25" />
+          <ConnectorPoint PointX="9.40625" PointY="8.73064947265625" />
+          <ConnectorPoint PointX="10.5" PointY="8.73064947265625" />
+        </AssociationConnector>
+        <AssociationConnector Association="BrewDbModel.FK_User_UserRole" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.297841796875" />
+          <ConnectorPoint PointX="3" PointY="5.297841796875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

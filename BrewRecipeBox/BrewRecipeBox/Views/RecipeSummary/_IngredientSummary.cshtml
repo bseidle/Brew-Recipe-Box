@@ -1,0 +1,21 @@
+﻿@model IEnumerable.BrewRecipeBox.Models.IngredientSummary
+
+@foreach (var item in Model)
+{
+     <tr>
+        <td>
+            @Html.DisplayFor(item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(item.Unit)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}

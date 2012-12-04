@@ -1,0 +1,36 @@
+﻿@model BrewRecipeBox.Models.IngredientSummary
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>IngredientSummary</legend>
+        <table>
+       @* <tr>
+            <th>@Html.LabelFor(model => model.Name)</th>
+            <th>@Html.LabelFor(model => model.Quantity)</th>
+            <th>@Html.LabelFor(model => model.Unit)</th>
+            </tr>
+*@
+                <tr>
+                <td>
+                    @Html.EditorFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Quantity)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Unit)
+                    @Html.ValidationMessageFor(model => model.Unit)
+                </td>
+                </tr>
+            </table>
+    </fieldset>
+}
+
+
