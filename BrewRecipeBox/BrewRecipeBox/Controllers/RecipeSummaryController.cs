@@ -9,7 +9,7 @@ namespace BrewRecipeBox.Controllers
 {
     public class RecipeSummaryController : Controller
     {
-        Repository repository = new Repository();
+        RecipeRepository repository = new RecipeRepository();
         //
         // GET: /RecipeSummary/
 

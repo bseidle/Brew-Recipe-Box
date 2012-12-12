@@ -28,6 +28,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("BrewDbModel", "FK_RecipeIngredient_Unit", "Unit", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BrewRecipeBox.Models.Unit), "RecipeIngredient", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BrewRecipeBox.Models.RecipeIngredient), true)]
 [assembly: EdmRelationshipAttribute("BrewDbModel", "FK_RecipeStep_Step", "Step", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BrewRecipeBox.Models.Step), "RecipeStep", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BrewRecipeBox.Models.RecipeStep), true)]
 [assembly: EdmRelationshipAttribute("BrewDbModel", "FK_User_UserRole", "UserRole", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BrewRecipeBox.Models.UserRole), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BrewRecipeBox.Models.User), true)]
+[assembly: EdmRelationshipAttribute("BrewDbModel", "FK_User_UserSettings", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BrewRecipeBox.Models.User), "UserSetting", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BrewRecipeBox.Models.UserSetting), true)]
+[assembly: EdmRelationshipAttribute("BrewDbModel", "FK_Ingredient_IngredientType", "IngredientType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BrewRecipeBox.Models.IngredientType), "Ingredient", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BrewRecipeBox.Models.Ingredient), true)]
 
 #endregion
 
@@ -238,6 +240,38 @@ namespace BrewRecipeBox.Models
             }
         }
         private ObjectSet<UserRole> _UserRoles;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserSetting> UserSettings
+        {
+            get
+            {
+                if ((_UserSettings == null))
+                {
+                    _UserSettings = base.CreateObjectSet<UserSetting>("UserSettings");
+                }
+                return _UserSettings;
+            }
+        }
+        private ObjectSet<UserSetting> _UserSettings;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<IngredientType> IngredientTypes
+        {
+            get
+            {
+                if ((_IngredientTypes == null))
+                {
+                    _IngredientTypes = base.CreateObjectSet<IngredientType>("IngredientTypes");
+                }
+                return _IngredientTypes;
+            }
+        }
+        private ObjectSet<IngredientType> _IngredientTypes;
 
         #endregion
         #region AddTo Methods
@@ -320,6 +354,22 @@ namespace BrewRecipeBox.Models
         public void AddToUserRoles(UserRole userRole)
         {
             base.AddObject("UserRoles", userRole);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserSettings EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserSettings(UserSetting userSetting)
+        {
+            base.AddObject("UserSettings", userSetting);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the IngredientTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToIngredientTypes(IngredientType ingredientType)
+        {
+            base.AddObject("IngredientTypes", ingredientType);
         }
 
         #endregion
@@ -824,6 +874,342 @@ namespace BrewRecipeBox.Models
         private global::System.String _IngredientNote;
         partial void OnIngredientNoteChanging(global::System.String value);
         partial void OnIngredientNoteChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> AlphaMin
+        {
+            get
+            {
+                return _AlphaMin;
+            }
+            set
+            {
+                OnAlphaMinChanging(value);
+                ReportPropertyChanging("AlphaMin");
+                _AlphaMin = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AlphaMin");
+                OnAlphaMinChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _AlphaMin;
+        partial void OnAlphaMinChanging(Nullable<global::System.Decimal> value);
+        partial void OnAlphaMinChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> LovibondMin
+        {
+            get
+            {
+                return _LovibondMin;
+            }
+            set
+            {
+                OnLovibondMinChanging(value);
+                ReportPropertyChanging("LovibondMin");
+                _LovibondMin = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LovibondMin");
+                OnLovibondMinChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _LovibondMin;
+        partial void OnLovibondMinChanging(Nullable<global::System.Decimal> value);
+        partial void OnLovibondMinChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> AttenuationMin
+        {
+            get
+            {
+                return _AttenuationMin;
+            }
+            set
+            {
+                OnAttenuationMinChanging(value);
+                ReportPropertyChanging("AttenuationMin");
+                _AttenuationMin = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AttenuationMin");
+                OnAttenuationMinChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _AttenuationMin;
+        partial void OnAttenuationMinChanging(Nullable<global::System.Decimal> value);
+        partial void OnAttenuationMinChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Misc
+        {
+            get
+            {
+                return _Misc;
+            }
+            set
+            {
+                OnMiscChanging(value);
+                ReportPropertyChanging("Misc");
+                _Misc = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Misc");
+                OnMiscChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Misc;
+        partial void OnMiscChanging(Nullable<global::System.Decimal> value);
+        partial void OnMiscChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> AlphaMax
+        {
+            get
+            {
+                return _AlphaMax;
+            }
+            set
+            {
+                OnAlphaMaxChanging(value);
+                ReportPropertyChanging("AlphaMax");
+                _AlphaMax = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AlphaMax");
+                OnAlphaMaxChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _AlphaMax;
+        partial void OnAlphaMaxChanging(Nullable<global::System.Decimal> value);
+        partial void OnAlphaMaxChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> LovibondMax
+        {
+            get
+            {
+                return _LovibondMax;
+            }
+            set
+            {
+                OnLovibondMaxChanging(value);
+                ReportPropertyChanging("LovibondMax");
+                _LovibondMax = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LovibondMax");
+                OnLovibondMaxChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _LovibondMax;
+        partial void OnLovibondMaxChanging(Nullable<global::System.Decimal> value);
+        partial void OnLovibondMaxChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> AttenuationMax
+        {
+            get
+            {
+                return _AttenuationMax;
+            }
+            set
+            {
+                OnAttenuationMaxChanging(value);
+                ReportPropertyChanging("AttenuationMax");
+                _AttenuationMax = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AttenuationMax");
+                OnAttenuationMaxChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _AttenuationMax;
+        partial void OnAttenuationMaxChanging(Nullable<global::System.Decimal> value);
+        partial void OnAttenuationMaxChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> BetaMin
+        {
+            get
+            {
+                return _BetaMin;
+            }
+            set
+            {
+                OnBetaMinChanging(value);
+                ReportPropertyChanging("BetaMin");
+                _BetaMin = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BetaMin");
+                OnBetaMinChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _BetaMin;
+        partial void OnBetaMinChanging(Nullable<global::System.Decimal> value);
+        partial void OnBetaMinChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> BetaMax
+        {
+            get
+            {
+                return _BetaMax;
+            }
+            set
+            {
+                OnBetaMaxChanging(value);
+                ReportPropertyChanging("BetaMax");
+                _BetaMax = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BetaMax");
+                OnBetaMaxChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _BetaMax;
+        partial void OnBetaMaxChanging(Nullable<global::System.Decimal> value);
+        partial void OnBetaMaxChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> PlatoMin
+        {
+            get
+            {
+                return _PlatoMin;
+            }
+            set
+            {
+                OnPlatoMinChanging(value);
+                ReportPropertyChanging("PlatoMin");
+                _PlatoMin = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PlatoMin");
+                OnPlatoMinChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _PlatoMin;
+        partial void OnPlatoMinChanging(Nullable<global::System.Decimal> value);
+        partial void OnPlatoMinChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> PlatoMax
+        {
+            get
+            {
+                return _PlatoMax;
+            }
+            set
+            {
+                OnPlatoMaxChanging(value);
+                ReportPropertyChanging("PlatoMax");
+                _PlatoMax = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PlatoMax");
+                OnPlatoMaxChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _PlatoMax;
+        partial void OnPlatoMaxChanging(Nullable<global::System.Decimal> value);
+        partial void OnPlatoMaxChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Flocculation
+        {
+            get
+            {
+                return _Flocculation;
+            }
+            set
+            {
+                OnFlocculationChanging(value);
+                ReportPropertyChanging("Flocculation");
+                _Flocculation = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Flocculation");
+                OnFlocculationChanged();
+            }
+        }
+        private global::System.String _Flocculation;
+        partial void OnFlocculationChanging(global::System.String value);
+        partial void OnFlocculationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> TempMin
+        {
+            get
+            {
+                return _TempMin;
+            }
+            set
+            {
+                OnTempMinChanging(value);
+                ReportPropertyChanging("TempMin");
+                _TempMin = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TempMin");
+                OnTempMinChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _TempMin;
+        partial void OnTempMinChanging(Nullable<global::System.Decimal> value);
+        partial void OnTempMinChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> TempMax
+        {
+            get
+            {
+                return _TempMax;
+            }
+            set
+            {
+                OnTempMaxChanging(value);
+                ReportPropertyChanging("TempMax");
+                _TempMax = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TempMax");
+                OnTempMaxChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _TempMax;
+        partial void OnTempMaxChanging(Nullable<global::System.Decimal> value);
+        partial void OnTempMaxChanged();
 
         #endregion
     
@@ -847,6 +1233,172 @@ namespace BrewRecipeBox.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RecipeIngredient>("BrewDbModel.FK_RecipeIngredient_Ingredient", "RecipeIngredient", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BrewDbModel", "FK_Ingredient_IngredientType", "IngredientType")]
+        public IngredientType IngredientType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IngredientType>("BrewDbModel.FK_Ingredient_IngredientType", "IngredientType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IngredientType>("BrewDbModel.FK_Ingredient_IngredientType", "IngredientType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<IngredientType> IngredientTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IngredientType>("BrewDbModel.FK_Ingredient_IngredientType", "IngredientType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<IngredientType>("BrewDbModel.FK_Ingredient_IngredientType", "IngredientType", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BrewDbModel", Name="IngredientType")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class IngredientType : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new IngredientType object.
+        /// </summary>
+        /// <param name="ingredientTypeId">Initial value of the IngredientTypeId property.</param>
+        public static IngredientType CreateIngredientType(global::System.Int32 ingredientTypeId)
+        {
+            IngredientType ingredientType = new IngredientType();
+            ingredientType.IngredientTypeId = ingredientTypeId;
+            return ingredientType;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IngredientTypeId
+        {
+            get
+            {
+                return _IngredientTypeId;
+            }
+            set
+            {
+                if (_IngredientTypeId != value)
+                {
+                    OnIngredientTypeIdChanging(value);
+                    ReportPropertyChanging("IngredientTypeId");
+                    _IngredientTypeId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IngredientTypeId");
+                    OnIngredientTypeIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IngredientTypeId;
+        partial void OnIngredientTypeIdChanging(global::System.Int32 value);
+        partial void OnIngredientTypeIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Type
+        {
+            get
+            {
+                return _Type;
+            }
+            set
+            {
+                OnTypeChanging(value);
+                ReportPropertyChanging("Type");
+                _Type = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Type");
+                OnTypeChanged();
+            }
+        }
+        private global::System.String _Type;
+        partial void OnTypeChanging(global::System.String value);
+        partial void OnTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SubType
+        {
+            get
+            {
+                return _SubType;
+            }
+            set
+            {
+                OnSubTypeChanging(value);
+                ReportPropertyChanging("SubType");
+                _SubType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SubType");
+                OnSubTypeChanged();
+            }
+        }
+        private global::System.String _SubType;
+        partial void OnSubTypeChanging(global::System.String value);
+        partial void OnSubTypeChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BrewDbModel", "FK_Ingredient_IngredientType", "Ingredient")]
+        public EntityCollection<Ingredient> Ingredients
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Ingredient>("BrewDbModel.FK_Ingredient_IngredientType", "Ingredient");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Ingredient>("BrewDbModel.FK_Ingredient_IngredientType", "Ingredient", value);
                 }
             }
         }
@@ -1210,6 +1762,30 @@ namespace BrewRecipeBox.Models
         private Nullable<global::System.Int32> _UnitId;
         partial void OnUnitIdChanging(Nullable<global::System.Int32> value);
         partial void OnUnitIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IngredientDuration
+        {
+            get
+            {
+                return _IngredientDuration;
+            }
+            set
+            {
+                OnIngredientDurationChanging(value);
+                ReportPropertyChanging("IngredientDuration");
+                _IngredientDuration = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IngredientDuration");
+                OnIngredientDurationChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IngredientDuration;
+        partial void OnIngredientDurationChanging(Nullable<global::System.Int32> value);
+        partial void OnIngredientDurationChanged();
 
         #endregion
     
@@ -2006,6 +2582,28 @@ namespace BrewRecipeBox.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BrewDbModel", "FK_User_UserSettings", "UserSetting")]
+        public EntityCollection<UserSetting> UserSettings
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserSetting>("BrewDbModel.FK_User_UserSettings", "UserSetting");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserSetting>("BrewDbModel.FK_User_UserSettings", "UserSetting", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -2107,6 +2705,176 @@ namespace BrewRecipeBox.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("BrewDbModel.FK_User_UserRole", "User", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BrewDbModel", Name="UserSetting")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserSetting : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserSetting object.
+        /// </summary>
+        /// <param name="userSettingId">Initial value of the UserSettingId property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        public static UserSetting CreateUserSetting(global::System.Int32 userSettingId, global::System.Int32 userId)
+        {
+            UserSetting userSetting = new UserSetting();
+            userSetting.UserSettingId = userSettingId;
+            userSetting.UserId = userId;
+            return userSetting;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 UserSettingId
+        {
+            get
+            {
+                return _UserSettingId;
+            }
+            set
+            {
+                if (_UserSettingId != value)
+                {
+                    OnUserSettingIdChanging(value);
+                    ReportPropertyChanging("UserSettingId");
+                    _UserSettingId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("UserSettingId");
+                    OnUserSettingIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _UserSettingId;
+        partial void OnUserSettingIdChanging(global::System.Int32 value);
+        partial void OnUserSettingIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String UserSettingKey
+        {
+            get
+            {
+                return _UserSettingKey;
+            }
+            set
+            {
+                OnUserSettingKeyChanging(value);
+                ReportPropertyChanging("UserSettingKey");
+                _UserSettingKey = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("UserSettingKey");
+                OnUserSettingKeyChanged();
+            }
+        }
+        private global::System.String _UserSettingKey;
+        partial void OnUserSettingKeyChanging(global::System.String value);
+        partial void OnUserSettingKeyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String UserSettingValue
+        {
+            get
+            {
+                return _UserSettingValue;
+            }
+            set
+            {
+                OnUserSettingValueChanging(value);
+                ReportPropertyChanging("UserSettingValue");
+                _UserSettingValue = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("UserSettingValue");
+                OnUserSettingValueChanged();
+            }
+        }
+        private global::System.String _UserSettingValue;
+        partial void OnUserSettingValueChanging(global::System.String value);
+        partial void OnUserSettingValueChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Int32 _UserId;
+        partial void OnUserIdChanging(global::System.Int32 value);
+        partial void OnUserIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BrewDbModel", "FK_User_UserSettings", "User")]
+        public User User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("BrewDbModel.FK_User_UserSettings", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("BrewDbModel.FK_User_UserSettings", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> UserReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("BrewDbModel.FK_User_UserSettings", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("BrewDbModel.FK_User_UserSettings", "User", value);
                 }
             }
         }

@@ -37,3 +37,42 @@ c:\users\ben\documents\visual studio 2010\Projects\BrewRecipeBox\BrewRecipeBox_T
 c:\users\ben\documents\visual studio 2010\Projects\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.OpenId.xml
 c:\users\ben\documents\visual studio 2010\Projects\BrewRecipeBox\BrewRecipeBox_Test\obj\Debug\BrewRecipeBox_Test.dll
 c:\users\ben\documents\visual studio 2010\Projects\BrewRecipeBox\BrewRecipeBox_Test\obj\Debug\BrewRecipeBox_Test.pdb
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\BrewRecipeBox_Test.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\BrewRecipeBox_Test.pdb
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\BrewRecipeBox.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\nunit.framework.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\nunit.mocks.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\EntityFramework.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\System.Web.Optimization.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\System.Web.Http.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.AspNet.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\WebGrease.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\System.Net.Http.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.Core.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.OAuth.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.OpenId.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\BrewRecipeBox.pdb
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\nunit.framework.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\EntityFramework.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\System.Web.Http.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\System.Web.Http.WebHost.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.AspNet.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\System.Net.Http.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.Core.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.OAuth.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\DotNetOpenAuth.OpenId.xml
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\obj\Debug\BrewRecipeBox_Test.dll
+C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\obj\Debug\BrewRecipeBox_Test.pdb

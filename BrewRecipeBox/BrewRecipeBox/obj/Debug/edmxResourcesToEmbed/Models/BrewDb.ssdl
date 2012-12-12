@@ -4,6 +4,7 @@
     <EntitySet Name="BrewLog" EntityType="BrewDbModel.Store.BrewLog" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BrewLogEntry" EntityType="BrewDbModel.Store.BrewLogEntry" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Ingredient" EntityType="BrewDbModel.Store.Ingredient" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IngredientType" EntityType="BrewDbModel.Store.IngredientType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Recipe" EntityType="BrewDbModel.Store.Recipe" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RecipeIngredient" EntityType="BrewDbModel.Store.RecipeIngredient" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RecipeStep" EntityType="BrewDbModel.Store.RecipeStep" store:Type="Tables" Schema="dbo" />
@@ -11,6 +12,7 @@
     <EntitySet Name="Unit" EntityType="BrewDbModel.Store.Unit" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="User" EntityType="BrewDbModel.Store.User" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserRole" EntityType="BrewDbModel.Store.UserRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserSettings" EntityType="BrewDbModel.Store.UserSettings" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_BrewLog_BrewLogEntry" Association="BrewDbModel.Store.FK_BrewLog_BrewLogEntry">
       <End Role="BrewLog" EntitySet="BrewLog" />
       <End Role="BrewLogEntry" EntitySet="BrewLogEntry" />
@@ -22,6 +24,10 @@
     <AssociationSet Name="FK_BrewLog_User" Association="BrewDbModel.Store.FK_BrewLog_User">
       <End Role="User" EntitySet="User" />
       <End Role="BrewLog" EntitySet="BrewLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ingredient_IngredientType" Association="BrewDbModel.Store.FK_Ingredient_IngredientType">
+      <End Role="IngredientType" EntitySet="IngredientType" />
+      <End Role="Ingredient" EntitySet="Ingredient" />
     </AssociationSet>
     <AssociationSet Name="FK_Recipe_User" Association="BrewDbModel.Store.FK_Recipe_User">
       <End Role="User" EntitySet="User" />
@@ -51,6 +57,10 @@
       <End Role="UserRole" EntitySet="UserRole" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>
+    <AssociationSet Name="FK_User_UserSettings" Association="BrewDbModel.Store.FK_User_UserSettings">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserSettings" EntitySet="UserSettings" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="BrewLog">
     <Key>
@@ -77,6 +87,28 @@
     <Property Name="IngredientName" Type="varchar" MaxLength="50" />
     <Property Name="IngredientTypeId" Type="int" />
     <Property Name="IngredientNote" Type="text" />
+    <Property Name="AlphaMin" Type="decimal" />
+    <Property Name="LovibondMin" Type="decimal" />
+    <Property Name="AttenuationMin" Type="decimal" />
+    <Property Name="Misc" Type="decimal" />
+    <Property Name="AlphaMax" Type="decimal" />
+    <Property Name="LovibondMax" Type="decimal" />
+    <Property Name="AttenuationMax" Type="decimal" />
+    <Property Name="BetaMin" Type="decimal" />
+    <Property Name="BetaMax" Type="decimal" />
+    <Property Name="PlatoMin" Type="decimal" />
+    <Property Name="PlatoMax" Type="decimal" />
+    <Property Name="Flocculation" Type="varchar" MaxLength="50" />
+    <Property Name="TempMin" Type="decimal" />
+    <Property Name="TempMax" Type="decimal" />
+  </EntityType>
+  <EntityType Name="IngredientType">
+    <Key>
+      <PropertyRef Name="IngredientTypeId" />
+    </Key>
+    <Property Name="IngredientTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="SubType" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Recipe">
     <Key>
@@ -94,6 +126,7 @@
     <Property Name="RecipeId" Type="int" />
     <Property Name="IngredientId" Type="int" />
     <Property Name="IngredientQuantity" Type="decimal" />
+    <Property Name="IngredientDuration" Type="int" />
     <Property Name="UnitId" Type="int" />
   </EntityType>
   <EntityType Name="RecipeStep">
@@ -137,6 +170,15 @@
     <Property Name="UserRoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="UserRoleName" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="UserSettings">
+    <Key>
+      <PropertyRef Name="UserSettingId" />
+    </Key>
+    <Property Name="UserSettingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserSettingKey" Type="varchar" MaxLength="50" />
+    <Property Name="UserSettingValue" Type="varchar" MaxLength="50" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
   <Association Name="FK_BrewLog_BrewLogEntry">
     <End Role="BrewLog" Type="BrewDbModel.Store.BrewLog" Multiplicity="0..1" />
     <End Role="BrewLogEntry" Type="BrewDbModel.Store.BrewLogEntry" Multiplicity="*" />
@@ -170,6 +212,18 @@
       </Principal>
       <Dependent Role="BrewLog">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ingredient_IngredientType">
+    <End Role="IngredientType" Type="BrewDbModel.Store.IngredientType" Multiplicity="0..1" />
+    <End Role="Ingredient" Type="BrewDbModel.Store.Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IngredientType">
+        <PropertyRef Name="IngredientTypeId" />
+      </Principal>
+      <Dependent Role="Ingredient">
+        <PropertyRef Name="IngredientTypeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -254,6 +308,18 @@
       </Principal>
       <Dependent Role="User">
         <PropertyRef Name="UserRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserSettings">
+    <End Role="User" Type="BrewDbModel.Store.User" Multiplicity="1" />
+    <End Role="UserSettings" Type="BrewDbModel.Store.UserSettings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserSettings">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

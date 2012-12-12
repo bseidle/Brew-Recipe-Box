@@ -51,6 +51,16 @@
       <End Role="UserRole" EntitySet="UserRoles" />
       <End Role="User" EntitySet="Users" />
     </AssociationSet>
+    <EntitySet Name="UserSettings" EntityType="BrewDbModel.UserSetting" />
+    <AssociationSet Name="FK_User_UserSettings" Association="BrewDbModel.FK_User_UserSettings">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserSetting" EntitySet="UserSettings" />
+    </AssociationSet>
+    <EntitySet Name="IngredientTypes" EntityType="BrewDbModel.IngredientType" />
+    <AssociationSet Name="FK_Ingredient_IngredientType" Association="BrewDbModel.FK_Ingredient_IngredientType">
+      <End Role="IngredientType" EntitySet="IngredientTypes" />
+      <End Role="Ingredient" EntitySet="Ingredients" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="BrewLog">
     <Key>
@@ -82,6 +92,21 @@
     <Property Name="IngredientTypeId" Type="Int32" />
     <Property Name="IngredientNote" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="RecipeIngredients" Relationship="BrewDbModel.FK_RecipeIngredient_Ingredient" FromRole="Ingredient" ToRole="RecipeIngredient" />
+    <NavigationProperty Name="IngredientType" Relationship="BrewDbModel.FK_Ingredient_IngredientType" FromRole="Ingredient" ToRole="IngredientType" />
+    <Property Type="Decimal" Name="AlphaMin" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="LovibondMin" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="AttenuationMin" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Misc" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="AlphaMax" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="LovibondMax" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="AttenuationMax" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="BetaMin" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="BetaMax" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PlatoMin" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PlatoMax" Precision="18" Scale="0" />
+    <Property Type="String" Name="Flocculation" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="TempMin" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="TempMax" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="Recipe">
     <Key>
@@ -107,6 +132,7 @@
     <NavigationProperty Name="Ingredient" Relationship="BrewDbModel.FK_RecipeIngredient_Ingredient" FromRole="RecipeIngredient" ToRole="Ingredient" />
     <NavigationProperty Name="Recipe" Relationship="BrewDbModel.FK_RecipeIngredient_Recipe" FromRole="RecipeIngredient" ToRole="Recipe" />
     <NavigationProperty Name="Unit" Relationship="BrewDbModel.FK_RecipeIngredient_Unit" FromRole="RecipeIngredient" ToRole="Unit" />
+    <Property Type="Int32" Name="IngredientDuration" />
   </EntityType>
   <EntityType Name="RecipeStep">
     <Key>
@@ -148,6 +174,7 @@
     <NavigationProperty Name="BrewLogs" Relationship="BrewDbModel.FK_BrewLog_User" FromRole="User" ToRole="BrewLog" />
     <NavigationProperty Name="Recipes" Relationship="BrewDbModel.FK_Recipe_User" FromRole="User" ToRole="Recipe" />
     <NavigationProperty Name="UserRole" Relationship="BrewDbModel.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
+    <NavigationProperty Name="UserSettings" Relationship="BrewDbModel.FK_User_UserSettings" FromRole="User" ToRole="UserSetting" />
   </EntityType>
   <EntityType Name="UserRole">
     <Key>
@@ -274,6 +301,49 @@
       </Principal>
       <Dependent Role="User">
         <PropertyRef Name="UserRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserSetting">
+    <Key>
+      <PropertyRef Name="UserSettingId" />
+    </Key>
+    <Property Type="Int32" Name="UserSettingId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserSettingKey" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserSettingValue" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="BrewDbModel.FK_User_UserSettings" FromRole="UserSetting" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_User_UserSettings">
+    <End Type="BrewDbModel.User" Role="User" Multiplicity="1" />
+    <End Type="BrewDbModel.UserSetting" Role="UserSetting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserSetting">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="IngredientType">
+    <Key>
+      <PropertyRef Name="IngredientTypeId" />
+    </Key>
+    <Property Type="Int32" Name="IngredientTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Ingredients" Relationship="BrewDbModel.FK_Ingredient_IngredientType" FromRole="IngredientType" ToRole="Ingredient" />
+    <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SubType" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Ingredient_IngredientType">
+    <End Type="BrewDbModel.IngredientType" Role="IngredientType" Multiplicity="0..1" />
+    <End Type="BrewDbModel.Ingredient" Role="Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IngredientType">
+        <PropertyRef Name="IngredientTypeId" />
+      </Principal>
+      <Dependent Role="Ingredient">
+        <PropertyRef Name="IngredientTypeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -1,10 +1,12 @@
 USE [BrewDb]
 GO
 
+print 'deleting from tables';
+
 delete from recipeingredient;
 delete from unit;
 delete from ingredient;
-
+delete from ingredienttype;
 delete from recipe;
 delete from [User];
 delete from UserRole;
@@ -13,27 +15,49 @@ delete from UserRole;
 
 --truncate table step;
 
+print 'inserting test data'
+GO
 
+INSERT INTO [dbo].[IngredientType]
+			([Name])
+	 VALUES
+			('Malt'),
+			('Extract'),
+			('Yeast'),
+			('Hop'),
+			('Adjucnt');
 GO
 
 INSERT INTO [dbo].[Ingredient]
            ([IngredientName]
            ,[IngredientTypeId]
-           ,[IngredientNote])
+           ,[IngredientNote]
+           ,[Alpha]
+           ,[Lovibond]
+           ,[Attenuation]
+           ,[Misc])		   
      VALUES
            ('Marris Otter'
            ,1
-           ,'Specialty Barley'),
+           ,'Specialty Barley'
+		   ,Null
+		   ,4
+		   ,Null
+		   ,Null),
 		   ('Cascade Hops'
-           ,1
-           ,'American Hop'),
+           ,4
+           ,'American Hop'
+		   ,6.5
+		   ,Null
+		   ,Null
+		   ,Null),
 		   ('Wyeast'
-           ,1
-           ,'Ale Yeast')
-GO
-USE [BrewDb]
-GO
-USE [BrewDb]
+           ,3
+           ,'Ale Yeast'
+		   ,Null
+		   ,Null
+		   ,Null
+		   ,75)
 GO
 
 INSERT INTO [dbo].[UserRole]
@@ -43,7 +67,6 @@ INSERT INTO [dbo].[UserRole]
            ('Administrator')
 GO
 
-
 INSERT INTO [dbo].[User]
            ([UserName]
            ,[UserPassword]
@@ -52,11 +75,6 @@ INSERT INTO [dbo].[User]
            ('Ben'
            ,'Test'
            , 1)
-GO
-
-
-GO
-USE [BrewDb]
 GO
 
 INSERT INTO [dbo].[Recipe]

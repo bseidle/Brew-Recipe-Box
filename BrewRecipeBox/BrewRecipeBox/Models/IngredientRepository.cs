@@ -17,8 +17,22 @@ namespace BrewRecipeBox.Models
                     where ri.RecipeId == recipeId
                     select new IngredientSummary
                     {
-                        Name = i.IngredientName,
-                        Quantity = ri.IngredientQuantity.Value,
+                        IngredientName = i.IngredientName,
+                        IngredientDuration = ri.IngredientDuration,
+                        AlphaMax = ri.Ingredient.AlphaMax,
+                        AlphaMin = ri.Ingredient.AlphaMin,
+                        AttenuationMax = ri.Ingredient.AttenuationMax,
+                        AttenuationMin = ri.Ingredient.AttenuationMin,
+                        BetaMax = ri.Ingredient.BetaMax,
+                        BetaMin = ri.Ingredient.BetaMin,
+                        Flocculation = ri.Ingredient.Flocculation,
+                        LovibondMax = ri.Ingredient.LovibondMax,
+                        LovibondMin = ri.Ingredient.LovibondMin,
+                        YeastTempMax = ri.Ingredient.TempMax,
+                        YeastTempMin = ri.Ingredient.TempMin,
+                        PlatoMax = ri.Ingredient.PlatoMax,
+                        PlatoMin = ri.Ingredient.PlatoMin,
+                        IngredientQuantity = ri.IngredientQuantity.Value,
                         Unit = u.UnitName
                     }).ToList();
         }

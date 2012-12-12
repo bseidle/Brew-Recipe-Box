@@ -23,6 +23,20 @@
     <EntitySetMapping Name="Ingredients">
       <EntityTypeMapping TypeName="BrewDbModel.Ingredient">
         <MappingFragment StoreEntitySet="Ingredient">
+          <ScalarProperty Name="TempMax" ColumnName="TempMax" />
+          <ScalarProperty Name="TempMin" ColumnName="TempMin" />
+          <ScalarProperty Name="Flocculation" ColumnName="Flocculation" />
+          <ScalarProperty Name="PlatoMax" ColumnName="PlatoMax" />
+          <ScalarProperty Name="PlatoMin" ColumnName="PlatoMin" />
+          <ScalarProperty Name="BetaMax" ColumnName="BetaMax" />
+          <ScalarProperty Name="BetaMin" ColumnName="BetaMin" />
+          <ScalarProperty Name="AttenuationMax" ColumnName="AttenuationMax" />
+          <ScalarProperty Name="LovibondMax" ColumnName="LovibondMax" />
+          <ScalarProperty Name="AlphaMax" ColumnName="AlphaMax" />
+          <ScalarProperty Name="Misc" ColumnName="Misc" />
+          <ScalarProperty Name="AttenuationMin" ColumnName="AttenuationMin" />
+          <ScalarProperty Name="LovibondMin" ColumnName="LovibondMin" />
+          <ScalarProperty Name="AlphaMin" ColumnName="AlphaMin" />
           <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
           <ScalarProperty Name="IngredientName" ColumnName="IngredientName" />
           <ScalarProperty Name="IngredientTypeId" ColumnName="IngredientTypeId" />
@@ -42,6 +56,7 @@
     <EntitySetMapping Name="RecipeIngredients">
       <EntityTypeMapping TypeName="BrewDbModel.RecipeIngredient">
         <MappingFragment StoreEntitySet="RecipeIngredient">
+          <ScalarProperty Name="IngredientDuration" ColumnName="IngredientDuration" />
           <ScalarProperty Name="RecipeIngredientId" ColumnName="RecipeIngredientId" />
           <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
           <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
@@ -93,6 +108,25 @@
         <MappingFragment StoreEntitySet="UserRole">
           <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
           <ScalarProperty Name="UserRoleName" ColumnName="UserRoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSettings">
+      <EntityTypeMapping TypeName="BrewDbModel.UserSetting">
+        <MappingFragment StoreEntitySet="UserSettings">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserSettingValue" ColumnName="UserSettingValue" />
+          <ScalarProperty Name="UserSettingKey" ColumnName="UserSettingKey" />
+          <ScalarProperty Name="UserSettingId" ColumnName="UserSettingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IngredientTypes">
+      <EntityTypeMapping TypeName="BrewDbModel.IngredientType">
+        <MappingFragment StoreEntitySet="IngredientType">
+          <ScalarProperty Name="SubType" ColumnName="SubType" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="IngredientTypeId" ColumnName="IngredientTypeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

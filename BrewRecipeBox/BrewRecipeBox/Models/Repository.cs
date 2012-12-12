@@ -5,8 +5,8 @@ using System.Web;
 
 namespace BrewRecipeBox.Models
 {
-    public class Repository : IRepository
-    {
+    public class Repository //: IRepository
+    {/*
         BrewDbEntities _db = new BrewDbEntities();
 
         public List<RecipeSummary> GetRecipeSummariesByUser(int userId)
@@ -65,5 +65,5 @@ namespace BrewRecipeBox.Models
             //return View(ingredient);
  	        throw new NotImplementedException();
         }
-    }
+   */ }
 }

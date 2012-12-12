@@ -178,6 +178,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BrewDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Calculator.cs" />
     <Compile Include="Models\IRepository.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\IngredientRepository.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Models\IRecipeRepository.cs" />
     <Compile Include="Models\RecipeRepository.cs" />
     <Compile Include="Models\RecipeSummary.cs" />
+    <Compile Include="Models\UserSummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +261,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="styleguide2008.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -343,8 +346,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\RecipeSummary\_IngredientSummary.cshtml" />
-    <Content Include="Views\RecipeSummary\Index_Old.cshtml" />
-    <Content Include="Views\RecipeSummary\Edit_old.cshtml" />
     <Content Include="Views\RecipeSummary\Edit.cshtml" />
     <Content Include="Views\Shared\_IngredientEdit_delete.cshtml" />
     <None Include="Views\RecipeSummary\Index.cshtml" />

@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="c:\users\ben\documents\visual studio 2010\Projects\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\BrewRecipeBox_Test.dll" total="1" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-11-04" time="23:15:37">
-  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.4223" os-version="Microsoft Windows NT 6.0.6002 Service Pack 2" platform="Win32NT" cwd="C:\Users\Ben\Documents\Visual Studio 2010\Projects\BrewRecipeBox\packages" machine-name="BEN-PC" user="Ben" user-domain="Ben-PC" />
+<test-results name="c:\users\ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\BrewRecipeBox.dll" total="0" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-12-04" time="21:54:50">
+  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.4234" os-version="Microsoft Windows NT 6.0.6002 Service Pack 2" platform="Win32NT" cwd="C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\packages" machine-name="BEN-PC" user="Ben" user-domain="Ben-PC" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="c:\users\ben\documents\visual studio 2010\Projects\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\BrewRecipeBox_Test.dll" executed="True" result="Failure" success="False" time="1.064" asserts="0">
-    <results>
-      <test-suite type="Namespace" name="BrewRecipeBox_Test" executed="True" result="Failure" success="False" time="1.044" asserts="0">
-        <results>
-          <test-suite type="TestFixture" name="RecipeRepositoryTest" executed="True" result="Error" success="False" time="1.040" asserts="0">
-            <failure>
-              <message><![CDATA[SetUp : System.ArgumentException : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid.]]></message>
-              <stack-trace><![CDATA[at System.Data.EntityClient.EntityConnection.ChangeConnectionString(String newConnectionString)
-at System.Data.Objects.ObjectContext..ctor(String connectionString, String defaultContainerName)
-at BrewRecipeBox.Models.BrewDbEntities..ctor() in c:\users\ben\documents\visual studio 2010\Projects\BrewRecipeBox\BrewRecipeBox\Models\BrewDb.Designer.cs:line 48
-at BrewRecipeBox.Models.RecipeRepository..ctor() in c:\users\ben\documents\visual studio 2010\Projects\BrewRecipeBox\BrewRecipeBox\Models\RecipeRepository.cs:line 10
-at BrewRecipeBox_Test.RecipeRepositoryTest..ctor() in c:\users\ben\documents\visual studio 2010\Projects\BrewRecipeBox\BrewRecipeBox_Test\RecipeRepositoryTest.cs:line 13
-]]></stack-trace>
-            </failure>
-            <results>
-              <test-case name="BrewRecipeBox_Test.RecipeRepositoryTest.GetRecipeSummariesByUser" executed="True" result="Failure" success="False" time="0.000" asserts="0">
-                <failure>
-                  <message><![CDATA[TestFixtureSetUp failed in RecipeRepositoryTest]]></message>
-                  <stack-trace />
-                </failure>
-              </test-case>
-            </results>
-          </test-suite>
-        </results>
-      </test-suite>
-    </results>
-  </test-suite>
+  <test-suite type="Assembly" name="c:\users\ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\BrewRecipeBox.dll" executed="True" result="Inconclusive" success="False" time="0.025" asserts="0" />
 </test-results>
