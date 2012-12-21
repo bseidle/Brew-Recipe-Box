@@ -9,17 +9,17 @@ namespace BrewRecipeBox.Models
     {
         BrewDbEntities _db = new BrewDbEntities();
 
-        public List<IngredientSummary> GetIngredientsByRecipe(int recipeId)
+        public List<RecipeIngredientAdapter> GetIngredientsByRecipe(int recipeId)
         {
             return (from i in _db.Ingredients
                     join ri in _db.RecipeIngredients on i.IngredientId equals ri.IngredientId
                     join u in _db.Units on ri.UnitId equals u.UnitId
                     where ri.RecipeId == recipeId
-                    select new IngredientSummary
+                    select new RecipeIngredientAdapter
                     {
                         IngredientName = i.IngredientName,
                         IngredientDuration = ri.IngredientDuration,
-                        AlphaMax = ri.Ingredient.AlphaMax,
+                        /*AlphaMax = ri.Ingredient.AlphaMax,
                         AlphaMin = ri.Ingredient.AlphaMin,
                         AttenuationMax = ri.Ingredient.AttenuationMax,
                         AttenuationMin = ri.Ingredient.AttenuationMin,
@@ -32,8 +32,8 @@ namespace BrewRecipeBox.Models
                         YeastTempMin = ri.Ingredient.TempMin,
                         PlatoMax = ri.Ingredient.PlatoMax,
                         PlatoMin = ri.Ingredient.PlatoMin,
-                        IngredientQuantity = ri.IngredientQuantity.Value,
-                        Unit = u.UnitName
+                        */IngredientQuantity = ri.IngredientQuantity.Value,
+                        IngredientUnit = u.UnitName
                     }).ToList();
         }
     }

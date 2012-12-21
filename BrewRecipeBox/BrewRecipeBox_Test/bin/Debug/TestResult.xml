@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\BrewRecipeBox_Test.dll" total="7" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-12-11" time="16:52:44">
+<test-results name="C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\BrewRecipeBox_Test.dll" total="7" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-12-20" time="22:58:17">
   <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.4234" os-version="Microsoft Windows NT 6.0.6002 Service Pack 2" platform="Win32NT" cwd="C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug" machine-name="BEN-PC" user="Ben" user-domain="Ben-PC" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\BrewRecipeBox_Test.dll" executed="True" result="Success" success="True" time="0.133" asserts="0">
+  <test-suite type="Assembly" name="C:\Users\Ben\Documents\GitHub\Brew-Recipe-Box\BrewRecipeBox\BrewRecipeBox_Test\bin\Debug\BrewRecipeBox_Test.dll" executed="True" result="Success" success="True" time="0.148" asserts="0">
     <results>
-      <test-suite type="Namespace" name="BrewRecipeBox_Test" executed="True" result="Success" success="True" time="0.112" asserts="0">
+      <test-suite type="Namespace" name="BrewRecipeBox_Test" executed="True" result="Success" success="True" time="0.128" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="RecipeRepositoryTest" executed="True" result="Success" success="True" time="0.110" asserts="0">
+          <test-suite type="TestFixture" name="RecipeRepositoryTest" executed="True" result="Success" success="True" time="0.125" asserts="0">
             <results>
-              <test-case name="BrewRecipeBox_Test.RecipeRepositoryTest.GetRecipeSummariesByUser" executed="True" result="Success" success="True" time="0.022" asserts="0" />
-              <test-case name="BrewRecipeBox_Test.RecipeRepositoryTest.IbuCalculatorRager" executed="True" result="Success" success="True" time="0.050" asserts="1" />
+              <test-case name="BrewRecipeBox_Test.RecipeRepositoryTest.GetRecipeSummariesByUser" executed="True" result="Success" success="True" time="0.021" asserts="0" />
+              <test-case name="BrewRecipeBox_Test.RecipeRepositoryTest.IbuCalculatorRager" executed="True" result="Success" success="True" time="0.066" asserts="1" />
               <test-case name="BrewRecipeBox_Test.RecipeRepositoryTest.IbuCalculatorRagerNotEqualToTinseth" executed="True" result="Success" success="True" time="0.012" asserts="1" />
               <test-case name="BrewRecipeBox_Test.RecipeRepositoryTest.IbuCalculatorTinseth" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="BrewRecipeBox_Test.RecipeRepositoryTest.SrmCalculatorDaniels" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+              <test-case name="BrewRecipeBox_Test.RecipeRepositoryTest.SrmCalculatorDaniels" executed="True" result="Success" success="True" time="0.001" asserts="1" />
               <test-case name="BrewRecipeBox_Test.RecipeRepositoryTest.SrmCalculatorDefault" executed="True" result="Success" success="True" time="0.001" asserts="1" />
               <test-case name="BrewRecipeBox_Test.RecipeRepositoryTest.SrmCalculatorMosher" executed="True" result="Success" success="True" time="0.001" asserts="1" />
             </results>

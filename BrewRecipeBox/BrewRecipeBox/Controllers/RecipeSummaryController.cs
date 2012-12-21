@@ -69,7 +69,7 @@ namespace BrewRecipeBox.Controllers
         // POST: /RecipeSummary/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(RecipeSummary recipeSummary, FormCollection collection)
+        public ActionResult Edit(RecipeAdapter recipeSummary, FormCollection collection)
         {
             try
             {

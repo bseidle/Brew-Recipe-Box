@@ -8,8 +8,8 @@ namespace BrewRecipeBox.Models
     public interface IRepository
     {
 
-        List<RecipeSummary> GetRecipeSummariesByUser(int userId);
-        List<IngredientSummary> GetIngredientsByRecipe(int recipeId);
+        List<RecipeAdapter> GetRecipeSummariesByUser(int userId);
+        List<RecipeIngredientAdapter> GetIngredientsByRecipe(int recipeId);
 
     }
 }
